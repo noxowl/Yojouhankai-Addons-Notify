@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">실시간 글 알림애드온</title>
+    <description xml:lang="ko">
+        특정 게시판에 등록된 글을 실시간으로 레이어를 통해 안내합니다. 원저작자는 Canto님입니다.
+    </description>
+    <version>2.0</version>
+    <date>2014-09-04</date>
+
+    <author email_address="wyperz@naver.com" link="http://bumcore.com">
+        <name xml:lang="ko">키스투엑스이</name>
+    </author>
+	<extra_vars>
+
+	<var name="settime">
+		<title xml:lang="ko">새글 체크 주기(초단위)</title>
+		<description xml:lang="ko">홈페이지 내 게시판에 새글이 올라왔는지를 체크하는 주기를 설정합니다</description>
+	</var>
+	<var name="hidetime">
+		<title xml:lang="ko">숨김 시간(초단위)</title>
+		<description xml:lang="ko">새글 알림을 표시후 숨기기까지의 시간을 설정합니다.</description>
+	</var>
+	<var name="ajaxtarget">
+		<title xml:lang="ko">타겟페이지</title>
+		<description xml:lang="ko">AJAX통신을 할 페이지모듈의 모듈명을 입력합니다. (비어있을시 사이트 기본호출 모듈에서 통신) </description>
+	</var>
+	<var name="notifyzindex">
+		<title xml:lang="ko">알림창 z-index</title>
+		<description xml:lang="ko">알림창의 z-index를 수정할 수 있습니다.  알림센터XE보다 적은 수치를 입력하세요. </description>
+	</var>
+
+	</extra_vars>
+</addon>
