@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon version="0.2">
-    <title xml:lang="ko">실시간 글 알림애드온</title>
+<addon version="2.1">
+    <title xml:lang="ko">카스테라 실시간 글 알림애드온</title>
     <description xml:lang="ko">
-        특정 게시판에 등록된 글을 실시간으로 레이어를 통해 안내합니다. 원저작자는 Canto님입니다.
+        특정 게시판에 등록된 글을 실시간으로 레이어를 통해 안내합니다. 기존 코드의 1차 저작자는 Canto, 2차 저작자는 키스투엑스이 님입니다. GPLv3로 배포됩니다.
     </description>
-    <version>2.0</version>
-    <date>2014-09-04</date>
+    <version>2.1</version>
+    <date>2015-12-20</date>
 
-    <author email_address="wyperz@naver.com" link="http://bumcore.com">
-        <name xml:lang="ko">키스투엑스이</name>
+    <author email_address="nachtbeere@outlook.com" link="https://github.com/noxowl/">
+        <name xml:lang="ko">Nixie Rhie</name>
     </author>
 	<extra_vars>
 
