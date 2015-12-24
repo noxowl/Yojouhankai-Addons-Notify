@@ -7,9 +7,9 @@ global: false
 });
 })(jQuery);
 </script>');
-
+Context::addCSSFile("./addons/kasutera_notify/css/notify.css", false);
 	/*
-	new_document_notify.addon.php
+	kasutera_notify.php
 	새글이 등록되어있을 경우를 체크 후 알림
 	*/
 	if($called_position == 'before_module_proc') {
@@ -40,28 +40,19 @@ global: false
 				if($doc->regdate > $time_check)	$is_document_new = true; //현재 시간으로 부터 1분안에 등록된 글이 있을경우
 			}
 		}
-			if(!$addon_info->lineborder) $addon_info->lineborder = '1px';
-			if(!$addon_info->bgcolor) $addon_info->bgcolor = '#EBEEF4';
-			if(!$addon_info->linecolor) $addon_info->linecolor = '#369';
-			if(!$addon_info->fontcolor) $addon_info->fontcolor = '#369';
-			if(!$addon_info->cuttitle) $doc->title = cut_str($doc->title,$addon_info->cuttitle,'...');
 
 			if($is_document_new == true && $_COOKIE['docsrl']!=$doc->document_srl){
 				$addBody = '<script type="text/javascript">document.cookie = "docsrl='.$doc->document_srl.'";</script>';
-				$addLayerdiv ='<div id="ndc"><div id="ndcLayer" style="position:fixed;display:block;left:100%;top:100%;margin-top:-83px;margin-left:-365px;width:350px;background:#FFF;border:'.$addon_info->lineborder.' solid '.$addon_info->linecolor.';z-index:'.$addon_info->notifyzindex.';color:'.$addon_info->fontcolor.';"><div style="border:1px solid #FFF;background: '.$addon_info->bgcolor.';"><span style="display:inline-block;width:280px;font:11px Dotum;letter-spacing:-1px;line-height: 22px;padding: 4px 10px;margin: 0 10px 0 0;height: 20px;text-shadow:1px 1px 0 #FFF">[알림]&nbsp;&nbsp;<b>'.$doc->nick_name.'</b>님이 새글을 등록하셧습니다.</span><span><a href="javascript:ndcClose();" style="text-decoration:none;text-shadow:1px 1px 0 #FFF;font:11px verdana;letter-spacing:-1px;color:'.$addon_info->fontcolor.'">Close</a></span></div><div class="alram" style="border-top:1px solid '.$addon_info->linecolor.';background:#FFF;padding: 5px 10px"><a style="font:700 12px Gulim;letter-spacing:-1px;height: 28px;line-height: 30px;display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overow: ellipsis;-moz-binding:url(js/ellipsis.xml#ellipsis)undefinedundefinedundefined;color:'.$addon_info->fontcolor.'" href='.$doc->document_srl.'>'.$doc->title.'</a></div></div></div>';
+				$addLayerdiv ='<div class="notify_body"><div class="notify_badge"><div class="badge_body" style="cursor: pointer;" onclick="location.href='.$doc->document_srl.'"><p class="badge_title"><b>새 글 알림</b></p><p class="badge_article">'.$doc->title.'</p></div><div class="badge_close"><a href="javascript:ndcClose();"><i class="xi-close-circle"></i></a></div></div></div>';
 			}
 			else{
-				$addLayerdiv ='<div id="ndc"><div id="ndcLayer" style="position:fixed;display:none;left:100%;top:100%;margin-top:-50px;margin-left:-330px;width:300px;height:30px;padding:5px;font-size:11px;background:'.$addon_info->bgcolor.';border:'.$addon_info->lineborder.' solid '.$addon_info->linecolor.';z-index:'.$addon_info->notifyzindex.'"><span></span></div></div>';
 				$addBody = '';
+				$addLayerdiv ='';
 			}
-			$nJquery = '<script type="text/javascript">function newdocumentchk() {jQuery("#ndc").load(request_uri+"index.php'.$ajax_target.' #ndcLayer");setTimeout(newdocumentchk, '.$settimeout.');}function ndcClose() {jQuery("#ndcLayer").fadeOut("slow");}setTimeout(newdocumentchk, '.$settimeout.');setTimeout(function(){jQuery("#ndcLayer").fadeOut("slow");}, '.$hide_time.');</script>';
-			
+			$nJquery = '<script type="text/javascript">function newdocumentchk() {jQuery(".notify_body").load(request_uri+"index.php'.$ajax_target.' .notify_badge");setTimeout(newdocumentchk, '.$settimeout.');}function ndcClose() {jQuery(".notify_badge").fadeOut("slow");}setTimeout(newdocumentchk, '.$settimeout.');setTimeout(function(){jQuery(".nodify_badge").fadeOut("slow");}, '.$hide_time.');</script>';
 			Context::addBodyHeader($addLayerdiv);
 			Context::addBodyHeader($nJquery);
 			Context::addBodyHeader($addBody);
-
-			
-			
 	}
 
 ?>

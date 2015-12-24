@@ -1,0 +1,40 @@
+.notify_body {
+	float: right;
+	width: 180px;
+	margin-right: 10px;
+	}
+.notify_badge {
+	z-index: 20;
+	width: 180px;
+	position:fixed;
+	margin-top: 72px;
+	background: rgba(255, 255, 255, 0.5);
+	border: 1px solid #757575;
+	border-radius: 5px;
+	padding: 5px 10px;
+	}
+
+.notify_badge a,
+.notify_badge a:hover,
+.notify_badge a:focus { color: #000; text-decoration:none;}
+
+.badge_body {
+	width: 90%;
+	float: left;
+	}
+
+.badge_title {
+	}
+
+.badge_close {
+	width: 10%;
+	float: right;
+	}
+	
+.badge_article {
+	width: 100%;
+	white-space: nowrap;               
+	overflow: hidden; 
+	text-overflow:ellipsis;
+	-o-text-overow: ellipsis;
+	}
